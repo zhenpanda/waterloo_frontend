@@ -44,3 +44,7 @@ hr.white-hr {
   padding-left: 12px;
   opacity: .6;
 }
+.form-block {
+  /*visibility: hidden;*/
+  /*display: hidden;*/
+}
