@@ -7,7 +7,7 @@ class Buyer extends Component {
     return (
       <div>
         <Console />
-        <h1>Buyer Page</h1>
+        <h2>Buyer Page</h2> 
         <div>
 
         </div>

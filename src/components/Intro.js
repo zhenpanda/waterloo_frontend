@@ -4,7 +4,7 @@ import logo from '../assets/images/cong_logo.png';
 import $ from 'jquery';
 
 class Intro extends Component {
-  componentWillMount() {
+  componentDidMount() {
     let	$window = $(window),$body = $('body');
     // Disable animations/transitions until the page has loaded.
     $body.addClass('is-loading');

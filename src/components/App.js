@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import {connect} from 'react-redux';
-// import * as actions from '../actions/index';
+import {connect} from 'react-redux';
+import * as actions from '../actions/index';
 
 import $ from 'jquery';
 import { Route } from 'react-router-dom';
@@ -33,4 +33,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return { test: state.waterloo.test }
+}
+
+export default connect(mapStateToProps, actions)(App);

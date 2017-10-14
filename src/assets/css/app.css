@@ -8,3 +8,39 @@
 .icons {
   margin-top: -4px;
 }
+.logo-header {
+  width: 200px;
+  margin-top: 15px;
+}
+hr.white-hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid white !important;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.main-header-text {
+  margin-left: 8px;
+}
+.test-box-tall {
+  height: 300px;
+  /*background-color: white;*/
+}
+.seller-menu {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /*width: 150px;*/
+  height:50px;
+  border: 1px solid white;
+  padding: 1px;
+  margin: 5px;
+  cursor: pointer;
+}
+.seller-menu-text {
+  margin-top: 4px;
+  padding-left: 12px;
+  opacity: .6;
+}

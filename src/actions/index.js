@@ -20,7 +20,7 @@ export function fetchTest() {
       console.log("there was an issue....fetch");
     });
   }
-}
+};
 
 /*
 export function pushStudent(studentJson) {
