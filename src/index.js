@@ -24,13 +24,12 @@ import Test from './components/Test';
 // import TestLink from './components/Test/TestLink';
 // import Console from './components/Console/Console';
 
-import { Web3Provider } from 'react-web3';
+// import { Web3Provider } from 'react-web3';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const history = createBrowserHistory()
 
 ReactDOM.render(
-  <Web3Provider>
     <Provider store={createStoreWithMiddleware(reducers)}>
       <Router history={history}>
 
@@ -43,7 +42,6 @@ ReactDOM.render(
 
       </Router>
     </Provider>
-  </Web3Provider>
   ,document.getElementById('root')
 );
 registerServiceWorker();
