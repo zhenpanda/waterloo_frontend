@@ -20,7 +20,8 @@
     "react-transitions": "^1.0.0",
     "react-web3": "^0.4.3",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "web3": "^1.0.0-beta.23"
   },
   "scripts": {
     "start": "react-scripts start",
