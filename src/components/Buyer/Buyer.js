@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 
-import Console from '../Console';
+import $ from 'jquery';
+
+import ConsoleB from '../ConsoleB';
 
 class Buyer extends Component {
+  componentDidMount() {
+    $('.App').addClass("white-bg");
+  }
   render() {
     return (
-      <div className="container">
-        <Console />
-          <h2>Buyer Page</h2> 
+      <div className="container white-bg">
+        <ConsoleB className="black-color" />
+          <h2 className="black-color">Buyer Page</h2>
           <div>
 
           </div>

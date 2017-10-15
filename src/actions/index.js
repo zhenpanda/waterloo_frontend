@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { FETCH_TEST,TOKENS_TEST } from './types';
+import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN } from './types';
 
 const TEST_API = 'https://jsonplaceholder.typicode.com/posts/1';
 // test API endpoints
-const TOKENS_STASH_API = 'http://localhost:3001/api/tokens';
+const TOKENS_STASH_API = 'http://localhost:3001/api/tokensStash';
+const CREATE_TOKEN_API = 'http://localhost:3001/api/createNewOrder';
 
 export function fetchTest() {
   return function(dispatch) {
@@ -43,27 +44,26 @@ export function fetchTokens() {
   }
 };
 
-/*
-export function pushStudent(studentJson) {
+export function pushToken(token) {
   return function(dispatch) {
     // debugger;
-    if (studentJson) {
+    if (token) {
       console.log("sending pushStudent calls...");
-      axios.post(`${ISSUE_DIPLOMA_API}`, studentJson)
+      axios.post(`${CREATE_TOKEN_API}`, token)
       .then(response => {
         console.log(response.data);
         dispatch({
-          type: PUSH_STUDENT,
+          type: PUSH_TOKEN,
           payload: response.data
         })
       }).then(res => {
         console.log("recalling fetch on all students");
-        axios.get(`${FETCH_NONISSUED_API}`)
+        axios.get(`${TOKENS_STASH_API}`)
         .then(response => {
           // debugger;
           console.log(response.data);
           dispatch({
-            type: FETCH_NONISSUED,
+            type: TOKENS_TEST,
             payload: response.data
           });
         })
@@ -80,4 +80,3 @@ export function pushStudent(studentJson) {
     //
   }
 }
-*/

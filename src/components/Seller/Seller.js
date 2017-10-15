@@ -26,11 +26,15 @@ class Seller extends Component {
   renderTokens() {
     if (this.props.tokens) {
       let tokenList = this.props.tokens.map( (b,i,a) => {
+        let uqi = i+b.name;
+        // console.log(uqi);
         return (
-          <Token name={b.name} key={i} symbol={b.symbol} date={b.dateCreated} />
+          <div key={uqi}>
+            <Token name={b.name} keyz={uqi} symbol={b.symbol} dateCreated={b.dateCreated} balance={b.balance} />
+          </div>
         )
       })
-      return  <div> { tokenList } </div>
+      return  <div className="token-list"> { tokenList } </div>
     }
   }
   showSellerFrom() {

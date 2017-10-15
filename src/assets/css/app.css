@@ -20,7 +20,14 @@ hr.white-hr {
   margin: 1em 0;
   padding: 0;
 }
-
+hr.black-hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black !important;
+  margin: 1em 0;
+  padding: 0;
+}
 .main-header-text {
   margin-left: 8px;
 }
@@ -57,4 +64,17 @@ hr.white-hr {
 .create-tokens-btn {
   cursor: pointer;
   margin-bottom: 10px !important;
+}
+.token-text {
+  font-size: 0.8em;
+}
+.token-list {
+  opacity: .7;
+}
+.white-bg {
+  background-color: white !important;
+  height: 680px;
+}
+.black-color {
+  color: black !important;
 }
