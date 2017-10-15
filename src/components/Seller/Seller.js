@@ -19,11 +19,17 @@ class Seller extends Component {
   }
   componentDidMount() {
     this.props.fetchTokens();
+    if(this.props.web3) this.props.fetchBalance(this.props.web3);
+ 
   }
   renderSellerBalance() {
-    // name of their token
-    // almount of left
-    // service type
+    if(this.props.balance){
+      if(this.props.balance[0].name === "Ether") {
+        return(
+          <div className="box">Your ETH Balance: {this.props.balance[0].balance}</div>
+        )
+      }
+    }
   }
   renderTokens() {
     if (this.props.tokens) {
@@ -115,7 +121,7 @@ class Seller extends Component {
 }
 
 function mapStateToProps(state) {
-  return { tokens: state.waterloo.tokens }
+  return { tokens: state.waterloo.tokens, balance: state.waterloo.balance, web3: state.waterloo.web3 }
 }
 
 export default connect(mapStateToProps, actions)(Seller);

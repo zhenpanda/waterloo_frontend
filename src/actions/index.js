@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN,FETCH_WEB3,PUSH_ORDER,FETCH_EXCHANGE } from './types';
+import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN,FETCH_WEB3, PUSH_ORDER, FETCH_BALANCE, FETCH_EXCHANGE } from './types';
 
 const TEST_API = 'https://jsonplaceholder.typicode.com/posts/1';
 // test API endpoints
@@ -7,6 +7,26 @@ const TOKENS_STASH_API = 'http://localhost:8000/tokens';
 const CREATE_TOKEN_API = 'http://localhost:8000/create';
 const CREATE_ORDER_API = 'http://localhost:8000/createOrder';
 const FETCH_EXCHANGE_API = 'http://localhost:8000/exchange';
+const FETCH_BALANCE_API = 'http://localhost:8000/getBalance';
+
+export function fetchBalance(address) {
+  return function(dispatch) {
+    console.log("fetching balance...");
+    axios.post(`${FETCH_BALANCE_API}`, {"address": address})
+    .then(response => {
+      // debugger;
+      console.log(response.data);
+      dispatch({
+        type: FETCH_BALANCE,
+        payload: response.data
+      });
+    })
+    .catch(response => {
+      // debugger;
+      console.log("there was an issue....fetching the balance");
+    });
+  }
+};
 
 export function fetchTest() {
   return function(dispatch) {
