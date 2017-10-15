@@ -20,6 +20,8 @@ class App extends Component {
   renderContent() {
     if (window.web3) {
       console.log(window.web3.eth.coinbase);
+      // let webInfo = window.web3.eth.coinbase;
+      this.props.changeWeb3(window.web3.eth.coinbase);
       switch (window.web3.eth.coinbase) {
         case "0x5409ed021d9299bf6814279a6a1411a7e866a631": return(<Route path="/" component={ Buyer } />)
         case "0x6ecbe1db9ef729cbe972c83fb886247691fb6beb":return(<Route path="/" component={ Seller } />)

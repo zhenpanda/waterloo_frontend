@@ -9,12 +9,16 @@ class Form extends Component {
     let symbol = $('#symbol-name').val();
     let total = $('#symbol-total').val();
     let expiration = $('#expiration').val();
-    let token = {
-      name: name,
-      symbol: symbol,
-      initialAmount: total,
-      expirationDate: expiration
-    };
+    let token;
+    if (this.props.web3) {
+      token = {
+        name: name,
+        symbol: symbol,
+        initialAmount: total,
+        expirationDate: expiration,
+        address: this.props.web3
+      };
+    }
     $(".seller-form").css({ opacity: 0.1337 });
     this.props.pushToken(token);
   }
@@ -62,7 +66,7 @@ class Form extends Component {
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {web3: state.waterloo.web3}
 }
 
 export default connect(mapStateToProps, actions)(Form);

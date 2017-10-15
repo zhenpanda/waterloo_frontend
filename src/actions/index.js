@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN } from './types';
+import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN,FETCH_WEB3 } from './types';
 
 const TEST_API = 'https://jsonplaceholder.typicode.com/posts/1';
 // test API endpoints
-const TOKENS_STASH_API = 'http://localhost:3001/api/tokensStash';
-const CREATE_TOKEN_API = 'http://localhost:3001/api/createNewOrder';
+const TOKENS_STASH_API = 'http://localhost:8000/tokens';
+const CREATE_TOKEN_API = 'http://localhost:8000/create';
 
 export function fetchTest() {
   return function(dispatch) {
@@ -24,6 +24,15 @@ export function fetchTest() {
     });
   }
 };
+
+export function changeWeb3(web3Info) {
+  return function(dispatch) {
+    dispatch({
+      type: FETCH_WEB3,
+      payload: web3Info
+    });
+  }
+}
 
 export function fetchTokens() {
   return function(dispatch) {

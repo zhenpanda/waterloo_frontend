@@ -25,7 +25,7 @@ class Seller extends Component {
   }
   renderTokens() {
     if (this.props.tokens) {
-      let tokenList = this.props.tokens.map( (b,i,a) => {
+      let tokenList = this.props.tokens.reverse().map( (b,i,a) => {
         let uqi = i+b.name;
         // console.log(uqi);
         return (
