@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN,FETCH_WEB3, PUSH_ORDER } from './types';
+import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN,FETCH_WEB3,PUSH_ORDER,FETCH_EXCHANGE } from './types';
 
 const TEST_API = 'https://jsonplaceholder.typicode.com/posts/1';
 // test API endpoints
 const TOKENS_STASH_API = 'http://localhost:8000/tokens';
 const CREATE_TOKEN_API = 'http://localhost:8000/create';
 const CREATE_ORDER_API = 'http://localhost:8000/createOrder';
+const FETCH_EXCHANGE_API = 'http://localhost:8000/exchange';
 
 export function fetchTest() {
   return function(dispatch) {
@@ -67,7 +68,6 @@ export function pushToken(token) {
           payload: response.data
         })
       }).then(res => {
-        console.log("recalling fetch on all students");
         axios.get(`${TOKENS_STASH_API}`)
         .then(response => {
           // debugger;
@@ -77,10 +77,6 @@ export function pushToken(token) {
             payload: response.data
           });
         })
-        .catch(response => {
-          // debugger;
-          console.log("there was an issue....fetch");
-        });
       })
       .catch(response => {
         // debugger;
@@ -109,8 +105,27 @@ export function pushOrder(order) {
         // debugger;
         console.log("there was an issue creating the order");
       });
-            
+
   }
     console.log(order);
+  }
+}
+
+export function fetchExchange() {
+  return function(dispatch) {
+    console.log("sending fetchExchange calls...");
+    axios.get(`${FETCH_EXCHANGE_API}`)
+    .then(response => {
+      // debugger;
+      // console.log(response.data);
+      dispatch({
+        type: FETCH_EXCHANGE,
+        payload: response.data
+      });
+    })
+    .catch(response => {
+      // debugger;
+      console.log("there was an issue....fetch");
+    });
   }
 }

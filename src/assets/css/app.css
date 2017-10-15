@@ -78,3 +78,38 @@ hr.black-hr {
 .black-color {
   color: black !important;
 }
+.buyer-menu {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  /*width: 150px;*/
+  height:50px;
+  border: 1px solid black;
+  padding: 1px;
+  margin: 5px;
+  cursor: pointer;
+}
+.buyer-menu-text {
+  margin-top: 4px;
+  padding-left: -12px;
+  padding-bottom: -10px;
+  opacity: 1;
+  color: black !important;
+}
+.black-box {
+  border: 1px solid grey;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.order-block {
+  opacity: .5;
+}
+.order-block:hover {
+  opacity: 1;
+}
+.black-box-big {
+  border: 1px solid black;
+  padding: 10px;
+}
