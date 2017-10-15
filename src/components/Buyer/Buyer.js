@@ -20,9 +20,6 @@ class Buyer extends Component {
     $('.App').addClass("white-bg");
     this.props.fetchExchange();
   }
-  renderOrderComplete() {
-    
-  }
   showOrderList() {
     this.setState({
       orders: true,
@@ -65,14 +62,12 @@ class Buyer extends Component {
                   </div>
                 </div>
 
-              <div className="col s6 m6">
+              <div className="col s9 m9">
+
                 <div className="form-block">
                   { this.renderBuyerArea() }
                 </div>
-              </div>
 
-              <div className="col s3 m3">
-                {/* show addtional options */}
               </div>
 
             </div>

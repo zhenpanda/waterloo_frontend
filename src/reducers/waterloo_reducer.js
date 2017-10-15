@@ -1,4 +1,4 @@
-import { FETCH_TEST,TOKENS_TEST,FETCH_WEB3, FETCH_BALANCE, FETCH_EXCHANGE } from '../actions/types';
+import { FETCH_TEST,TOKENS_TEST,FETCH_WEB3, FETCH_BALANCE, FETCH_EXCHANGE,FILL_ORDER } from '../actions/types';
 
 // returns boolean
 export default function(state={}, action) {
@@ -13,6 +13,8 @@ export default function(state={}, action) {
       return {...state, web3: action.payload};
     case FETCH_EXCHANGE:
       return {...state, exchange: action.payload};
+    case FILL_ORDER:
+      return {...state, el: action.payload};
     default: break;
   }
   return state;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/index';
+
 import $ from 'jquery';
 
 class OrderForm extends Component {

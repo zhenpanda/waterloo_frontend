@@ -6,9 +6,10 @@ class OrderList extends Component {
     // console.log(this.props.data);
     let exchangeAsList = this.props.data.reverse().map( (c,i,a) => {
       // console.log(uqi);
+      let uqi = i+"block";
       return (
-        <div key={i}>
-          <Order data={c} />
+        <div key={i} id={uqi}>
+          <Order data={c} uqiKey={uqi} />
         </div>
       )
     })

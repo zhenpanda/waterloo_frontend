@@ -20,12 +20,15 @@ class Seller extends Component {
   componentDidMount() {
     this.props.fetchTokens();
     if(this.props.web3) this.props.fetchBalance(this.props.web3);
-
+  }
+  refresherTokens() {
+    this.props.fetchTokens();
   }
   renderSellerBalance() {
     if(this.props.balance){
       if(this.props.balance[0].name === "Ether") {
-        let eth = this.props.balance[0].balance ;
+        let eth = this.props.balance[0].balance / 10 ** 18 ;
+        if (this.props.payment) {eth+= this.props.payment}
         return(
           <div className="user-balance">Your Balance: {eth}</div>
         )
@@ -92,7 +95,7 @@ class Seller extends Component {
                       <div className="seller-menu-text center aligh" onClick={() => {this.showOrderFrom()} }>Create Orders</div>
                     </div>
                     <div className="seller-menu moveFromLeftFade delay180">
-                      <div className="seller-menu-text center aligh">Find Orders</div>
+                      <div className="seller-menu-text center aligh" onClick={() => {this.refresherTokens()} }>Refresher</div>
                     </div>
                   </div>
                   <div className="sell-balance-info">
