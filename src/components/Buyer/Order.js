@@ -13,9 +13,14 @@ class Order extends Component {
   removeOrder() {
     if (this.props.el) {
       console.log("remove target element");
-      let ethCount = $("#"+this.props.el+"el");
-      console.log(ethCount);
-      debugger;
+      let ethCount = $("#"+this.props.el+"el").attr("data")
+      // console.log(ethCount);
+      let total = $(".eth-value").text();
+      let newValue = parseInt(total) - parseInt(ethCount);
+      // console.log(total, ethCount, newValue);
+      if ( $.isNumeric(newValue) ) {
+        $(".eth-value").html( newValue );
+      }
       $("#"+this.props.el).remove();
     }
   }
@@ -46,7 +51,7 @@ class Order extends Component {
       let ethElement = this.props.uqiKey+"el";
       // console.log(aToken,bToken);
       return(
-        <span id={ethElement} data={this.props.data.makerTokenAmount}>
+        <span id={ethElement} data={this.props.data.takerTokenAmount}>
           {aTokenAmount}: [{aToken}]    ->    {bTokenAmount}: [{bToken}]
         </span>
       )

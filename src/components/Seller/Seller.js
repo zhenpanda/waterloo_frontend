@@ -29,7 +29,7 @@ class Seller extends Component {
         let eth = this.props.balance[0].balance / 10 ** 18 ;
         if (this.props.payment) {eth+= this.props.payment}
         return(
-          <div className="user-balance">Your Balance: {eth}</div>
+          <div className="user-balance">Your Eth Balance: {eth}</div>
         )
       }
     }

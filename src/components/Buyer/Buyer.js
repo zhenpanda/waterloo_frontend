@@ -59,7 +59,7 @@ class Buyer extends Component {
                     <div className="buyer-menu moveFromLeftFade delay100"><div className="buyer-menu-text center aligh" onClick={() => this.showOrderList()}>Find Orders</div></div>
                     <div className="buyer-menu moveFromLeftFade"><div className="buyer-menu-text center aligh" onClick={() => this.showBounty()}>Create Bounty</div></div>
                     <div className="sell-balance-info">
-                      <span className="black-color">Eth Balance: {this.state.eth}</span>
+                      <span className="black-color">Eth Balance: <span className="eth-value">{this.state.eth}</span></span>
                     </div>
                   </div>
                 </div>
