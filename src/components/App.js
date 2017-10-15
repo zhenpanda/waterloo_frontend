@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index';
 
-import $ from 'jquery';
 import { Route } from 'react-router-dom';
 
 import Intro from './Intro';

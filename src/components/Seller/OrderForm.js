@@ -12,7 +12,6 @@ class OrderForm extends Component {
         }
         console.log(this.props.tokens);
     }
-
     createOrder() {
         let takerToken = "0x48bacb9266a570d521063ef5dd96e61686dbe788"; //ethereum
         // let makerToken = $('#maker-token').val();
@@ -21,13 +20,16 @@ class OrderForm extends Component {
         let makerValue = $('#maker-value').val();
         let formValues;
         if (this.props.web3) {
-        formValues = {
-            maker: this.props.web3,
-            takerTokenAddress: takerToken,
-            makerTokenAddress: makerToken,
-            takerTokenAmount: takerValue,
-            makerTokenAmount: makerValue
-        };
+          formValues = {
+              "maker": "0x6ecbe1db9ef729cbe972c83fb886247691fb6beb",
+              "taker": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
+              "takerTokenAddress": takerToken,
+              "makerTokenAddress": makerToken,
+              "takerTokenAmount": takerValue,
+              "makerTokenAmount": makerValue,
+              "takerFee": 0,
+              "makerFee": 0
+          };
         }
 
         $(".seller-form").css({ opacity: 0.1337 });
