@@ -25,10 +25,10 @@ class Order extends Component {
           aToken = this.props.tokens[t].name
         }
       }
-      console.log(aToken,bToken);
+      // console.log(aToken,bToken);
       return(
         <span>
-          {aTokenAmount}: [{aToken}]    ->    {bTokenAmount}: [{bToken}] 
+          {aTokenAmount}: [{aToken}]    ->    {bTokenAmount}: [{bToken}]
         </span>
       )
     }
@@ -38,7 +38,6 @@ class Order extends Component {
     return (
       <div className="black-box moveFromBottomFade order-block">
         <h4 className="black-color">{ this.renderOrders() }</h4>
-
       </div>
     )
   }

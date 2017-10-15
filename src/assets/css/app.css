@@ -12,7 +12,13 @@
   width: 200px;
   margin-top: 15px;
 }
+.user-balance {
+  margin-top: 15px;
+  margin-bottom: -5px;
+  /*padding-right: 10px;*/
+}
 hr.white-hr {
+  margin-top: -20px;
   display: block;
   height: 1px;
   border: 0;
@@ -52,6 +58,9 @@ hr.black-hr {
   padding-bottom: -10px;
   opacity: .6;
 }
+.seller-menu:hover {
+  opacity: .45;
+}
 .form-block {
   /*visibility: hidden;*/
   /*display: hidden;*/
@@ -64,6 +73,12 @@ hr.black-hr {
 .create-tokens-btn {
   cursor: pointer;
   margin-bottom: 10px !important;
+}
+.seller-token {
+  opacity: .55;
+}
+.seller-token:hover {
+  opacity: 1;
 }
 .token-text {
   font-size: 0.8em;

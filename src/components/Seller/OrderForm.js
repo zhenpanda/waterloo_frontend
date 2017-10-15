@@ -4,36 +4,45 @@ import * as actions from '../../actions/index';
 import $ from 'jquery';
 
 class OrderForm extends Component {
-
     componentDidMount() {
         console.log("show current tokems");
-        if(!this.props.tokens){
-            return;
-        }
-        console.log(this.props.tokens);
+        if(!this.props.tokens){return;}
+        // console.log(this.props.tokens);
     }
     createOrder() {
-        let takerToken = "0x48bacb9266a570d521063ef5dd96e61686dbe788"; //ethereum
-        // let makerToken = $('#maker-token').val();
-        let makerToken = "0xeef74ac710a91d96b302c6664623917eefe9608d";
-        let takerValue = $('#taker-value').val();
-        let makerValue = $('#maker-value').val();
-        let formValues;
-        if (this.props.web3) {
-          formValues = {
-              "maker": "0x6ecbe1db9ef729cbe972c83fb886247691fb6beb",
-              "taker": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
-              "takerTokenAddress": takerToken,
-              "makerTokenAddress": makerToken,
-              "takerTokenAmount": takerValue,
-              "makerTokenAmount": makerValue,
-              "takerFee": 0,
-              "makerFee": 0
-          };
-        }
+        if(this.props.tokens) {
+          let takerToken = "0x48bacb9266a570d521063ef5dd96e61686dbe788"; //ethereum
+          let makerToken = $('#maker-token').val();
+          // let makerToken = "0xeef74ac710a91d96b302c6664623917eefe9608d";
+          let makerAddress;
+          for(let k=0; k<this.props.tokens.length; k++) {
+            if(this.props.tokens[k].symbol === makerToken)
+              makerAddress = this.props.tokens[k].contractAddress;
+          }
+          if(makerAddress) {
+            // debugger;
+            let takerValue = $('#taker-value').val();
+            let makerValue = $('#maker-value').val();
+            let formValues;
+            if (this.props.web3) {
+              formValues = {
+                "maker": "0x6ecbe1db9ef729cbe972c83fb886247691fb6beb",
+                "taker": "0x5409ed021d9299bf6814279a6a1411a7e866a631",
+                "takerTokenAddress": takerToken,
+                "makerTokenAddress": makerAddress,
+                "takerTokenAmount": takerValue,
+                "makerTokenAmount": makerValue,
+                "takerFee": 0,
+                "makerFee": 0
+              };
+            }
 
-        $(".seller-form").css({ opacity: 0.1337 });
-        this.props.pushOrder(formValues);
+            $(".seller-form").css({ opacity: 0.1337 });
+            this.props.pushOrder(formValues);
+          }else{
+            debugger;
+          }
+        }
     }
 
     createSelectItems() {
@@ -56,7 +65,7 @@ class OrderForm extends Component {
             <form className="seller-form box">
             <div className="moveFromBottomFade row">
                 <div className="input-field col s12 m12">
-                    <input placeholder="Service Offered" id="maker-token" type="text" className="validate" />
+                    <input placeholder="Service Token Offered (Symbol)" id="maker-token" type="text" className="validate" />
                 </div>
             </div>
 

@@ -25,16 +25,16 @@ class Seller extends Component {
   renderSellerBalance() {
     if(this.props.balance){
       if(this.props.balance[0].name === "Ether") {
-        let eth = this.props.balance[0].balance / Math.pow(10, 18);
+        let eth = this.props.balance[0].balance ;
         return(
-          <div className="box">Your ETH Balance: {eth}</div>
+          <div className="user-balance">Your Balance: {eth}</div>
         )
       }
     }
   }
   renderTokens() {
     if (this.props.tokens) {
-      let tokenList = this.props.tokens.reverse().map( (b,i,a) => {
+      let tokenList = this.props.tokens.map( (b,i,a) => {
         let uqi = i+b.name;
         // console.log(uqi);
         return (
@@ -76,7 +76,7 @@ class Seller extends Component {
   render() {
     return (
       <div className="container">
-        <Console />
+        <Console balance={ this.renderSellerBalance() }/>
 
         <div className="row">
           <div className="col s12 m12">
@@ -96,7 +96,7 @@ class Seller extends Component {
                     </div>
                   </div>
                   <div className="sell-balance-info">
-                    { this.renderSellerBalance() }
+
                   </div>
                 </div>
 

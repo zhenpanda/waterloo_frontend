@@ -20,6 +20,9 @@ class Buyer extends Component {
     $('.App').addClass("white-bg");
     this.props.fetchExchange();
   }
+  renderOrderComplete() {
+    
+  }
   showOrderList() {
     this.setState({
       orders: true,

@@ -11,6 +11,7 @@ class Console extends Component {
             <img src={logo} alt="" className="logo-header" />
           </div>
           <div className="col s3 m3">
+            { this.props.balance }
           </div>
         </div>
         <hr className="white-hr" />

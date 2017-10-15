@@ -4,7 +4,7 @@ import Order from './Order';
 class OrderList extends Component {
   render() {
     // console.log(this.props.data);
-    let exchangeAsList = this.props.data.map( (c,i,a) => {
+    let exchangeAsList = this.props.data.reverse().map( (c,i,a) => {
       // console.log(uqi);
       return (
         <div key={i}>

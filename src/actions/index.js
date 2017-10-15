@@ -9,6 +9,8 @@ const CREATE_ORDER_API = 'http://localhost:8000/createOrder';
 const FETCH_EXCHANGE_API = 'http://localhost:8000/exchange';
 const FETCH_BALANCE_API = 'http://localhost:8000/getBalance';
 
+const TOKENS_STASH_API_LOCAL = '172.31.208.27';
+
 export function fetchBalance(address) {
   return function(dispatch) {
     console.log("fetching balance...");
