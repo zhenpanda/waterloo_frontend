@@ -41,10 +41,20 @@ hr.white-hr {
 }
 .seller-menu-text {
   margin-top: 4px;
-  padding-left: 12px;
+  padding-left: -12px;
+  padding-bottom: -10px;
   opacity: .6;
 }
 .form-block {
   /*visibility: hidden;*/
   /*display: hidden;*/
+}
+.box {
+  border: 1px solid grey;
+  padding: 20px;
+  /*margin: 15px;*/
+}
+.create-tokens-btn {
+  cursor: pointer;
+  margin-bottom: 10px !important;
 }

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import * as actions from '../../actions/index';
 
 class Form extends Component {
   render() {
     return (
-        <form>
+        <form className="box">
           <div className="moveFromBottomFade row">
             <div className="input-field col s6 m6">
               <input placeholder="Service Name" type="text" className="validate" />
@@ -31,6 +32,15 @@ class Form extends Component {
               </div>
             </div>
           </div>
+
+          <div className="row">
+            <div className="input-field col s12 m12">
+              <div className="box create-tokens-btn" onClick={() => {this.fetchTokensFunc()}}>
+                <div className="center aligh">Create Service Tokens</div>
+              </div>
+            </div>
+          </div>
+
         </form>
     )
   }
