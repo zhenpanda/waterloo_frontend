@@ -15,8 +15,8 @@ class OrderForm extends Component {
 
     createOrder() {
         let takerToken = "0x48bacb9266a570d521063ef5dd96e61686dbe788"; //ethereum
-        let makerToken = $('#maker-token').val();
-        // let makerToken = "0x6b5081c44506cd7d9639976bec202f28e4a954c2";
+        // let makerToken = $('#maker-token').val();
+        let makerToken = "0xeef74ac710a91d96b302c6664623917eefe9608d";
         let takerValue = $('#taker-value').val();
         let makerValue = $('#maker-value').val();
         let formValues;
@@ -30,19 +30,19 @@ class OrderForm extends Component {
         };
         }
 
-        $(".order-form").css({ opacity: 0.1337 });
+        $(".seller-form").css({ opacity: 0.1337 });
         this.props.pushOrder(formValues);
     }
 
     createSelectItems() {
-        let items = [];         
-        for (let i = 0; i <= this.props.maxValue; i++) {             
-            items.push(<option key={i} value={i}>{i}</option>);   
+        let items = [];
+        for (let i = 0; i <= this.props.maxValue; i++) {
+            items.push(<option key={i} value={i}>{i}</option>);
             //here I will be creating my options dynamically based on
             //what props are currently passed to the parent component
         }
         return items;
-    } 
+    }
 
     onDropdownSelected(e) {
         console.log("THE VAL", e.target.value);
@@ -90,8 +90,10 @@ class OrderForm extends Component {
 }
 
 function mapStateToProps(state) {
-  return {web3: state.waterloo.web3,
-    tokens: state.waterloo.tokens}
+  return {
+    web3: state.waterloo.web3,
+    tokens: state.waterloo.tokens
+  }
 }
 
 export default connect(mapStateToProps, actions)(OrderForm);

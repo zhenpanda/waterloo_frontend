@@ -105,6 +105,7 @@ hr.black-hr {
 }
 .order-block {
   opacity: .5;
+  margin: 8px;
 }
 .order-block:hover {
   opacity: 1;

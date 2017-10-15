@@ -15,7 +15,7 @@ export function fetchBalance(address) {
     axios.post(`${FETCH_BALANCE_API}`, {"address": address})
     .then(response => {
       // debugger;
-      console.log(response.data);
+      // console.log(response.data);
       dispatch({
         type: FETCH_BALANCE,
         payload: response.data

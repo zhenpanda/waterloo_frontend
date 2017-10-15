@@ -20,13 +20,14 @@ class Seller extends Component {
   componentDidMount() {
     this.props.fetchTokens();
     if(this.props.web3) this.props.fetchBalance(this.props.web3);
- 
+
   }
   renderSellerBalance() {
     if(this.props.balance){
       if(this.props.balance[0].name === "Ether") {
+        let eth = this.props.balance[0].balance / Math.pow(10, 18);
         return(
-          <div className="box">Your ETH Balance: {this.props.balance[0].balance}</div>
+          <div className="box">Your ETH Balance: {eth}</div>
         )
       }
     }
@@ -42,7 +43,7 @@ class Seller extends Component {
           </div>
         )
       })
-      return  <div className="token-list"> { tokenList } </div>
+      return  <div className="token-list moveFromRightFade"> { tokenList } </div>
     }
   }
   showSellerFrom() {

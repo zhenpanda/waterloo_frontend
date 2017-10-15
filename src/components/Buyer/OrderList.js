@@ -5,10 +5,9 @@ class OrderList extends Component {
   render() {
     // console.log(this.props.data);
     let exchangeAsList = this.props.data.map( (c,i,a) => {
-      let uqi = i+c.name;
       // console.log(uqi);
       return (
-        <div key={uqi}>
+        <div key={i}>
           <Order data={c} />
         </div>
       )
