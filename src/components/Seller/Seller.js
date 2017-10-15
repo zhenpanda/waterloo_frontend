@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions/index';
 
+import { Scrollbars } from 'react-custom-scrollbars';
+
 import Console from '../Console';
 import Form from './Form';
 import OrderForm from './OrderForm';
@@ -20,9 +22,6 @@ class Seller extends Component {
   componentDidMount() {
     this.props.fetchTokens();
     if(this.props.web3) this.props.fetchBalance(this.props.web3);
-  }
-  refresherTokens() {
-    this.props.fetchTokens();
   }
   renderSellerBalance() {
     if(this.props.balance){
@@ -46,7 +45,24 @@ class Seller extends Component {
           </div>
         )
       })
-      return  <div className="token-list moveFromRightFade"> { tokenList } </div>
+      return  (
+        <Scrollbars
+          autoHide
+          autoHideTimeout={1000}
+          autoHideDuration={200}
+          autoHeight
+          autoHeightMin={0}
+          autoHeightMax={500}
+          thumbMinSize={30}
+          universal={true}
+          className="scrollbars-block">
+
+            {/* render different types of students */}
+            <div className="token-list moveFromRightFade"> { tokenList } </div>
+
+        </Scrollbars>
+      )
+
     }
   }
   showSellerFrom() {
@@ -93,9 +109,6 @@ class Seller extends Component {
                     </div>
                     <div className="seller-menu moveFromLeftFade delay100">
                       <div className="seller-menu-text center aligh" onClick={() => {this.showOrderFrom()} }>Create Orders</div>
-                    </div>
-                    <div className="seller-menu moveFromLeftFade delay180">
-                      <div className="seller-menu-text center aligh" onClick={() => {this.refresherTokens()} }>Refresher</div>
                     </div>
                   </div>
                   <div className="sell-balance-info">

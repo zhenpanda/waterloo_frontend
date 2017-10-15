@@ -76,6 +76,7 @@ hr.black-hr {
 }
 .seller-token {
   opacity: .55;
+  font-size: 0.95em;
 }
 .seller-token:hover {
   opacity: 1;
@@ -128,4 +129,7 @@ hr.black-hr {
 .black-box-big {
   border: 1px solid black;
   padding: 10px;
+}
+.sell-balance-info {
+  margin: 20px;
 }

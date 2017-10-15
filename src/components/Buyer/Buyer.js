@@ -13,7 +13,8 @@ class Buyer extends Component {
   super()
   this.state = {
     orders: null,
-    bounty: null
+    bounty: null,
+    eth: 100
     }
   }
   componentDidMount() {
@@ -57,8 +58,9 @@ class Buyer extends Component {
                   <div className="test-box-tall">
                     <div className="buyer-menu moveFromLeftFade delay100"><div className="buyer-menu-text center aligh" onClick={() => this.showOrderList()}>Find Orders</div></div>
                     <div className="buyer-menu moveFromLeftFade"><div className="buyer-menu-text center aligh" onClick={() => this.showBounty()}>Create Bounty</div></div>
-                  </div>
-                  <div className="sell-balance-info">
+                    <div className="sell-balance-info">
+                      <span className="black-color">Eth Balance: {this.state.eth}</span>
+                    </div>
                   </div>
                 </div>
 

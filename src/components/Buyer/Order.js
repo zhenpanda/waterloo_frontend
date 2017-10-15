@@ -13,6 +13,9 @@ class Order extends Component {
   removeOrder() {
     if (this.props.el) {
       console.log("remove target element");
+      let ethCount = $("#"+this.props.el+"el");
+      console.log(ethCount);
+      debugger;
       $("#"+this.props.el).remove();
     }
   }
@@ -39,10 +42,11 @@ class Order extends Component {
           aToken = this.props.tokens[t].name
         }
       }
-
+      // console.log(this.props.data.makerTokenAmount)
+      let ethElement = this.props.uqiKey+"el";
       // console.log(aToken,bToken);
       return(
-        <span>
+        <span id={ethElement} data={this.props.data.makerTokenAmount}>
           {aTokenAmount}: [{aToken}]    ->    {bTokenAmount}: [{bToken}]
         </span>
       )
