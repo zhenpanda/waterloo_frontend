@@ -10,13 +10,13 @@ import Buyer from './Buyer/Buyer';
 import Seller from './Seller/Seller';
 
 class App extends Component {
-  componentWillMount() {
-    // click on the window click out the window to reload
-    $(window).focus( () => {
-      console.log("reloading...");
-      window.location.reload();
-    });
-  }
+  // componentWillMount() {
+  //   // click on the window click out the window to reload
+  //   $(window).focus( () => {
+  //     console.log("reloading...");
+  //     window.location.reload();
+  //   });
+  // }
   renderContent() {
     if (window.web3) {
       console.log(window.web3.eth.coinbase);

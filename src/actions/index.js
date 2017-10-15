@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN,FETCH_WEB3 } from './types';
+import { FETCH_TEST,TOKENS_TEST,PUSH_TOKEN,FETCH_WEB3, PUSH_ORDER } from './types';
 
 const TEST_API = 'https://jsonplaceholder.typicode.com/posts/1';
 // test API endpoints
 const TOKENS_STASH_API = 'http://localhost:8000/tokens';
 const CREATE_TOKEN_API = 'http://localhost:8000/create';
+const CREATE_ORDER_API = 'http://localhost:8000/createOrder';
 
 export function fetchTest() {
   return function(dispatch) {
@@ -87,5 +88,29 @@ export function pushToken(token) {
       });
     };
     //
+  }
+}
+
+export function pushOrder(order) {
+  return function(dispatch) {
+    console.log("sending order");
+    if(order){
+
+      axios.post(`${CREATE_ORDER_API}`, order)
+      .then(response => {
+        // debugger;
+        console.log(response.data);
+        dispatch({
+          type: PUSH_ORDER,
+          payload: response.data
+        });
+      })
+      .catch(response => {
+        // debugger;
+        console.log("there was an issue creating the order");
+      });
+            
+  }
+    console.log(order);
   }
 }

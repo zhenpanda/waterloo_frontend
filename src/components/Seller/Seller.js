@@ -5,6 +5,7 @@ import * as actions from '../../actions/index';
 
 import Console from '../Console';
 import Form from './Form';
+import OrderForm from './OrderForm';
 import Token from './Token';
 
 class Seller extends Component {
@@ -12,6 +13,7 @@ class Seller extends Component {
   super()
   this.state = {
     form: null,
+    orderForm: null,
     contract: null
     }
   }
@@ -39,12 +41,27 @@ class Seller extends Component {
   }
   showSellerFrom() {
     console.log("click show form...");
-    if (!this.state.form) this.setState({form: true});
-    else this.setState({form: null});
+    // if (!this.state.form) this.setState({form: true});
+    // else this.setState({form: null});
+    this.setState ({
+        form: true,
+        orderForm: false,
+        contract: false
+    })
   }
-  renderSellerForm() {
+  showOrderFrom() {
+    console.log("click show order form...");
+    this.setState ({
+      form: false,
+      orderForm: true,
+      contract: false
+  })
+  }
+  renderState() {
     if( this.state.form ){
       return (<Form />)
+    } else if ( this.state.orderForm ) {
+      return (<OrderForm />)
     } else if ( this.state.contract ) {
       return (<h1>List of contracts</h1>)
     }
@@ -61,9 +78,15 @@ class Seller extends Component {
               <div className="row">
                 <div className="col s3 m3">
                   <div className="test-box-tall">
-                    <div className="seller-menu moveFromLeftFade"><div className="seller-menu-text center aligh" onClick={() => {this.showSellerFrom()} }>Create Service</div></div>
-                    <div className="seller-menu moveFromLeftFade delay100"><div className="seller-menu-text center aligh">Create Orders</div></div>
-                    <div className="seller-menu moveFromLeftFade delay180"><div className="seller-menu-text center aligh">Find Orders</div></div>
+                    <div className="seller-menu moveFromLeftFade">
+                      <div className="seller-menu-text center aligh" onClick={() => {this.showSellerFrom()} }>Create Service</div>
+                    </div>
+                    <div className="seller-menu moveFromLeftFade delay100">
+                      <div className="seller-menu-text center aligh" onClick={() => {this.showOrderFrom()} }>Create Orders</div>
+                    </div>
+                    <div className="seller-menu moveFromLeftFade delay180">
+                      <div className="seller-menu-text center aligh">Find Orders</div>
+                    </div>
                   </div>
                   <div className="sell-balance-info">
                     { this.renderSellerBalance() }
@@ -73,7 +96,7 @@ class Seller extends Component {
 
               <div className="col s6 m6">
                 <div className="form-block">
-                  { this.renderSellerForm() }
+                  { this.renderState() }
                 </div>
               </div>
 
