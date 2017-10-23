@@ -14,7 +14,7 @@ class Buyer extends Component {
   this.state = {
     orders: null,
     bounty: null,
-    eth: 100
+    eth: 1000
     }
   }
   componentDidMount() {

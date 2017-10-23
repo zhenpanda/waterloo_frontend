@@ -25,9 +25,9 @@ class Order extends Component {
     }
   }
   renderFillBox() {
-    let el = this.props.uqiKey;
+    console.log(this.props.uqiKey, "this is uqiKey");
     return(
-      <div onClick={ () => this.props.fillOrder(el) }>Fill Order</div>
+      <div onClick={ () => this.props.fillOrder(this.props.uqiKey) }>Fill Order</div>
     )
   }
   renderOrders() {

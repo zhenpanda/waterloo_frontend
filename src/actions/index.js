@@ -189,21 +189,25 @@ let formAPI = {
 export function fillOrder(el) {
   return function(dispatch) {
     console.log("sending fillOrder order");
-    if(el){
-      // debugger;
-      axios.post(`${FILL_ORDER_API}`, formAPI)
-      .then(response => {
-        console.log(response.data);
-        // debugger;
-        dispatch({
-          type: FILL_ORDER,
-          payload: el
-        });
-      })
-      .catch(response => {
-        // debugger;
-        console.log("there was an issue creating the order");
+    if(el) {
+      dispatch({
+        type: FILL_ORDER,
+        payload: el
       });
+      // debugger;
+      // axios.post(`${FILL_ORDER_API}`, formAPI)
+      // .then(response => {
+      //   console.log(response.data);
+      //   // debugger;
+      //   dispatch({
+      //     type: FILL_ORDER,
+      //     payload: el
+      //   });
+      // })
+      // .catch(response => {
+      //   // debugger;
+      //   console.log("there was an issue creating the order");
+      // });
 
   }
     // console.log(order);

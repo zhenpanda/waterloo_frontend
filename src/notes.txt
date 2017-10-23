@@ -1,0 +1,18 @@
+1. download replace 0x
+  0x_testrpc_snapshot
+
+2. run testrpc
+
+3. truffle migrate
+
+4. replace HumanStandardTokenFactory -> tokenFactoryAddress in server.js
+
+5. npm run server
+
+6. frontend npm i npm start
+
+7. metamask localhost
+
+8. import addresses (0)(1) private keys
+
+remember do hard refresh (cmd + shift + r)
