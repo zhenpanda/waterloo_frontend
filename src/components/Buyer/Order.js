@@ -16,7 +16,7 @@ class Order extends Component {
       let ethCount = $("#"+this.props.el+"el").attr("data")
       // console.log(ethCount);
       let total = $(".eth-value").text();
-      let newValue = parseInt(total) - parseInt(ethCount);
+      let newValue = parseInt(total,10) - parseInt(ethCount,10);
       // console.log(total, ethCount, newValue);
       if ( $.isNumeric(newValue) ) {
         $(".eth-value").html( newValue );
