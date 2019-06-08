@@ -16,6 +16,7 @@ class App extends Component {
   //     window.location.reload();
   //   });
   // }
+  
   renderContent() {
     if (window.web3) {
       console.log(window.web3.eth.coinbase);

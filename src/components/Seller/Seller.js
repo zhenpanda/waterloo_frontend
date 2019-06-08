@@ -92,10 +92,14 @@ class Seller extends Component {
       return (<h1>List of contracts</h1>)
     }
   }
+
   render() {
     return (
-      <div className="container">
+      <div className="black-backgroud">
         <Console balance={ this.renderSellerBalance() }/>
+
+        <div className="container">
+
 
         <div className="row">
           <div className="col s12 m12">
@@ -131,8 +135,11 @@ class Seller extends Component {
             </div>
           </div>
 
+        </div> 
+      
         </div>
-      </div>
+        
+      </div> 
     )
   }
 }

@@ -21,6 +21,9 @@ import 'react-transitions/dist/animations.css';
 // created components
 import App from './components/App';
 import Test from './components/Test';
+import SellerTest from './components/Seller/Seller';
+import BuyerTest from './components/Buyer/Buyer';
+
 // import TestLink from './components/Test/TestLink';
 // import Console from './components/Console/Console';
 
@@ -35,8 +38,11 @@ ReactDOM.render(
 
         <Switch>
 
-          <Route exact path='/' component={ App }/>
-          <Route exact path='/test' component={ Test }/>
+          <Route exact path='/' component={ App } />
+          
+          <Route exact path='/test' component={ Test } />
+          <Route exact path="/seller" component={ SellerTest } />
+          <Route exact path="/buyer" component={ BuyerTest } />
 
         </Switch>
 
